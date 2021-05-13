@@ -17,7 +17,7 @@ const sync = async (userID) => {
     if (newPosts.length === 0) return
     const newPostsSorted = newPosts.sort((a, b) => b.createTime - a.createTime).slice(0, 10)
     const post = newPostsSorted.filter((post) => !cache.includes(post.id))[0]
-    if (cache && post && (post.createTime > ((Date.now() - 60 * 24 * 60 * 60 * 1000) / 1000))) {
+    if (cache && post && (post.createTime > ((Date.now() - 24 * 60 * 60 * 1000) / 1000))) {
         const author = post.authorMeta.nickName
         const link = post.webVideoUrl
         const embed = new Discord.MessageEmbed()
